@@ -1,16 +1,16 @@
-#LOCAL
+# LOCAL
 
-##Create venv
+## Create venv
 ```bash
 python -m  venv venv         
 ```
 
-##Activate venv
+## Activate venv
 ```bash
 venv\Scripts\activate
 ```
 
-##Run app
+## Run app
 ```bash
 uvicorn main:app --reload
 ```

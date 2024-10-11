@@ -6,7 +6,7 @@ def bookEntity(book) -> dict:
         "isbn": book["isbn"],
         "editorial": book["editorial"],
         "price": book["price"],
-        "amoutn": book["amoutn"],
+        "amount": book["amount"],
     }
 
 def booksEntity(books) -> list:

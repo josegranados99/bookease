@@ -26,7 +26,7 @@ class SeedSingleton:
                 "isbn": row['ISBN'].replace("-", ""),
                 "editorial": row['Editorial'],
                 "price": row['Price'],
-                "amoutn": row['Amount'],
+                "amount": row['Amount'],
                 }
 
                 mongo_db_collection.insert_one(book)

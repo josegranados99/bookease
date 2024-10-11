@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 from ..db.mongoDB.mongodb import DatabaseMongoDB
 
 class SeedSingleton:
@@ -34,5 +35,7 @@ class SeedSingleton:
             print("Seed upp")
 
 def seed():
-    seed:SeedSingleton = SeedSingleton("../books.xlsx")
+    path_seed:str = os.getenv("PATH_BOOKS")
+    # seed:SeedSingleton = SeedSingleton("../books.xlsx")
+    seed:SeedSingleton = SeedSingleton(path_seed)
     seed.seed()

@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+from dotenv import load_dotenv
 from src.router.seed import seed
 from src.router.search import search
+
+load_dotenv("../../../.env")
 
 app = FastAPI()
 app.title = "BOOKEASE"

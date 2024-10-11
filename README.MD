@@ -16,6 +16,8 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Create the .env file in the root directory
+
 ## Run app
 ```bash
 uvicorn main:app --reload

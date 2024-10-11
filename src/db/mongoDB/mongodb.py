@@ -1,11 +1,12 @@
-from ..database import DatabaseAbstractFactory
 # from dotenv import load_dotenv
+import os
+from ..database import DatabaseAbstractFactory
 from pymongo import MongoClient, errors 
-# import os
 
-MONGO_HOST = "localhost"
-MONGO_PORT = "27017"
-MONGO_TIMEOUT = 1000
+# load_dotenv("../../../.env")
+MONGO_HOST = os.getenv("MONGO_HOST")
+MONGO_PORT = os.getenv("MONGO_PORT")
+MONGO_TIMEOUT = int(os.getenv("MONGO_TIMEOUT"))
 
 class DatabaseMongoDB(DatabaseAbstractFactory):
     _instance = None

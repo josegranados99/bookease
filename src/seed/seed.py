@@ -23,7 +23,7 @@ class SeedSingleton:
                 book = {
                 "title": row['Title'],
                 "author": row['Author'],
-                "isbn": row['ISBN'],
+                "isbn": row['ISBN'].replace("-", ""),
                 "editorial": row['Editorial'],
                 "price": row['Price'],
                 "amoutn": row['Amount'],
@@ -33,5 +33,6 @@ class SeedSingleton:
             self._up_seed = True       
             print("Seed upp")
 
-seed:SeedSingleton = SeedSingleton("../books.xlsx")
-seed.seed()
+def seed():
+    seed:SeedSingleton = SeedSingleton("../books.xlsx")
+    seed.seed()

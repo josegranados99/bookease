@@ -11,6 +11,7 @@ class DatabaseMongoDB(DatabaseAbstractFactory):
     _instance = None
     _uri = None
     _timeout = None
+    _mongo_db: MongoClient = None
 
     def __new__(cls):
         if cls._instance is None:
@@ -25,10 +26,16 @@ class DatabaseMongoDB(DatabaseAbstractFactory):
         print(self._uri)
         try:
             client:MongoClient = MongoClient(self._uri, serverSelectionTimeoutMS = self._timeout)
-            mongo_db = client["bookease"]
+            self._mongo_db = client[db_name]
             print(f"Connected to {db_name}")
-            return mongo_db
+            return self._mongo_db
         except errors.ServerSelectionTimeoutError as error_tiemout:
             print(f"Error timeout: {error_tiemout}")
         except errors.ConnectionFailure as error_connection:
-            print(f"Error connection: {error_connection}") 
+            print(f"Error connection: {error_connection}")
+
+    # def get_db(self)->MongoClient:
+    #     return self._mongo_db
+
+    # def get_db_collection(db:MongoClient, collection:str):
+    #     return db[collection] 

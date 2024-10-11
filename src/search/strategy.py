@@ -1,19 +1,8 @@
 from abc import ABC, abstractmethod
-from typing import Optional
-from pydantic import BaseModel
 from src.schema.book import (bookEntity, booksEntity)
 from pymongo import MongoClient 
 
 mongo_client = MongoClient()
-
-class ModelBook(BaseModel):
-    id: Optional[str]
-    title: str
-    author: str
-    isbn: str
-    editorial: str
-    price: float
-    amount: int
 
 class SearchStartegy(ABC):
     @abstractmethod
